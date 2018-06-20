@@ -1,6 +1,6 @@
 /*
-*	¶ã‚©‚çŒv‰ñ‚è‚É‰QŠª‚«ó‚Éi‚ñ‚Å‚¢‚­‚·‚²‚ë‚­ƒQ[ƒ€
-*	ƒXƒ^[ƒgˆÊ’u‚ğ•Ï‚¦‚½‚¢‚Æ‚©‰QŠª‚­Œü‚«‚ğ•Ï‚¦‚½‚¢‚Æ‚©‚à‚¢‚¯‚é‚Í‚¸
+*	å·¦ä¸Šã‹ã‚‰æ™‚è¨ˆå›ã‚Šã«æ¸¦å·»ãçŠ¶ã«é€²ã‚“ã§ã„ãã™ã”ã‚ãã‚²ãƒ¼ãƒ 
+*	ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®ã‚’å¤‰ãˆãŸã„ã¨ã‹æ¸¦å·»ãå‘ãã‚’å¤‰ãˆãŸã„ã¨ã‹ã‚‚ã„ã‘ã‚‹ã¯ãš
 */
 
 #include <stdio.h>
@@ -8,12 +8,12 @@
 #include <math.h>
 #include <time.h>
 
-#define R 7		// ”Õ–Ê‚Ì‘å‚«‚³(s)
-#define C 7		// ”Õ–Ê‚Ì‘å‚«‚³(—ñ)
-#define SR 0	// ƒXƒ^[ƒgˆÊ’u(s)
-#define SC 0	// ƒXƒ^[ƒgˆÊ’u(—ñ)
-#define GR 3	// ƒS[ƒ‹ˆÊ’u(s)
-#define GC 3	// ƒS[ƒ‹ˆÊ’u(—ñ)
+#define R 7	// ç›¤é¢ã®å¤§ãã•(è¡Œ)
+#define C 7	// ç›¤é¢ã®å¤§ãã•(åˆ—)
+#define SR 0	// ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®(è¡Œ)
+#define SC 0	// ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®(åˆ—)
+#define GR 3	// ã‚´ãƒ¼ãƒ«ä½ç½®(è¡Œ)
+#define GC 3	// ã‚´ãƒ¼ãƒ«ä½ç½®(åˆ—)
 
 void setField(char **field){
 	int i,j;
@@ -66,16 +66,16 @@ void susumu(char **field, char c, int me, int *row, int *col, int *rmax, int *rm
 	
 	printf("%d, %d, %d\n", y, x, direction);
 
-	while((i != me) && (field[y][x] != field[GR][GC])){			// true‚Å{}“àÀs
-		direction = direction % 12;	// i‚ŞŒü‚«(Œv‚ÌŒü‚«)
+	while((i != me) && (field[y][x] != field[GR][GC])){			// trueã§{}å†…å®Ÿè¡Œ
+		direction = direction % 12;	// é€²ã‚€å‘ã(æ™‚è¨ˆã®å‘ã)
 
 		if(direction == 3){
 			if(x != xx){
 				x++;
 				i++;
 			} else {
-				direction += 3;	// ‰ñ‚ê‰E(‘«‚µ‚ ‚°‚Ä‚é‚Ì‚ÍŒã‚Åƒ‹[ƒ‹’Ç‰Á‚·‚é‚½‚ß)
-				yn++;		// ’[‚É“’B‚µ‚½‚Ì‚Åƒ‰ƒCƒ“‚ğ‹·‚ß‚é(•s—v‚É‚È‚Á‚½‚çÁ‚·)
+				direction += 3;	// å›ã‚Œå³(è¶³ã—ã‚ã’ã¦ã‚‹ã®ã¯å¾Œã§ãƒ«ãƒ¼ãƒ«è¿½åŠ ã™ã‚‹ãŸã‚)
+				yn++;		// ç«¯ã«åˆ°é”ã—ãŸã®ã§ãƒ©ã‚¤ãƒ³ã‚’ç‹­ã‚ã‚‹(ä¸è¦ã«ãªã£ãŸã‚‰æ¶ˆã™)
 			}
 		} else if(direction == 6){
 			if(y != yx){
@@ -105,7 +105,7 @@ void susumu(char **field, char c, int me, int *row, int *col, int *rmax, int *rm
 	}
 
 	printf("%d, %d, %d\n", y, x, direction);
-	field[y][x] = c;	//@”Õ–Ê‚ğXV‚µ‚ÄI‚í‚è
+	field[y][x] = c;	//ã€€ç›¤é¢ã‚’æ›´æ–°ã—ã¦çµ‚ã‚ã‚Š
 	// print(field);
 	*row = y;
 	*col = x;
@@ -118,7 +118,7 @@ void susumu(char **field, char c, int me, int *row, int *col, int *rmax, int *rm
 }
 
 int input(int q){
-	rewind(stdin); // “ü—Íƒoƒbƒtƒ@‚ÌƒNƒŠƒA
+	rewind(stdin); // å…¥åŠ›ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢
 	q = getchar();
 	return q;
 }
@@ -133,16 +133,16 @@ void game(char **field, char c, int row, int col, int rmax, int rmin, int cmax, 
 
 	
 
-	while(field[GR][GC] != c){ // ƒQ[ƒ€‚ÌŒp‘±ğŒ
+	while(field[GR][GC] != c){ // ã‚²ãƒ¼ãƒ ã®ç¶™ç¶šæ¡ä»¶
 		print(now);
-		printf("ƒTƒCƒRƒU‚è‚Ü‚·. [type y/n]\n");
+		printf("ã‚µã‚¤ã‚³ãƒ­æŒ¯ã‚Šã¾ã™. [type y/n]\n");
 		//q = input(q);
 		q = 'y';
 		printf("%c\n", q);
 		
 		if(q == 'y'){
 			me = saikoro();
-			printf("o‚½–Ú‚Í%d‚Å‚·.\n", me);
+			printf("å‡ºãŸç›®ã¯%dã§ã™.\n", me);
 			susumu(now, c, me, &row, &col, &rmax, &rmin, &cmax, &cmin, &muki);
 		} else if(q == 'n'){
 			break;
@@ -162,14 +162,14 @@ int main()
 	srand((unsigned)time(NULL));
 	char field[R][C];
 
-	int row = SR;	// ©ƒLƒƒƒ‰‚Ì‹êŠ
-	int	col = SC;	// ©ƒLƒƒƒ‰‚Ì‹êŠ
-	char c = 'c';	// ©ƒLƒƒƒ‰
+	int row = SR;	// è‡ªã‚­ãƒ£ãƒ©ã®å±…å ´æ‰€
+	int col = SC;	// è‡ªã‚­ãƒ£ãƒ©ã®å±…å ´æ‰€
+	char c = 'c';	// è‡ªã‚­ãƒ£ãƒ©
 	int rmax = R-1;
 	int rmin = 0;
 	int cmax = C-1;
 	int cmin = 0;
-	int muki = 3;	// ©ƒLƒƒƒ‰‚ÌŒü‚«
+	int muki = 3;	// è‡ªã‚­ãƒ£ãƒ©ã®å‘ã
 	int i;
 
 	char *ban[C];
